@@ -1,10 +1,14 @@
+'use strict';
 
-process.stdout.write('starting up\n');
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
 
-while(true) {
+if (cluster.isMaster) {
+    console.log('Master process is running with pid:', process.pid);
 
-    // console.log('heres a change');
-
+    for (let i = 0; i < numCPUs; ++i) {
+        cluster.fork();
+    }
+} else {
+    console.log('Worker started with pid:', process.pid);
 }
-
-process.exit();
