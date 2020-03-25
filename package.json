@@ -1,0 +1,23 @@
+{
+  "name": "try2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && concurrently --kill-others \"tsc --watch\" \"node dist/index.js\"",
+    "build": "tsc",
+    "serve": "node dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.31",
+    "rxjs": "^6.5.4",
+    "rxjs-compat": "^6.5.4"
+  }
+}
